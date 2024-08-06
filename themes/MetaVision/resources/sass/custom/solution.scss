@@ -1,0 +1,14 @@
+.solution-image {
+  &:before {
+    content: '';
+    width: 30%;
+    background-color: $primary;
+    height:30%;
+    position:absolute;
+    bottom: -5%;
+    left: -5%;
+  }
+}
+.solution-details {
+  padding-top:150px
+}

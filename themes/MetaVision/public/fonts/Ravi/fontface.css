@@ -1,0 +1,60 @@
+﻿@font-face {
+    font-family: Ravi;
+    font-style: normal;
+    font-weight: 900;
+    src: url('eot/LTRavi-Black.eot');
+    src: url('eot/LTRavi-Black.eot?#iefix') format('embedded-opentype'), /* IE6-8 */
+    url('woff/LTRavi-Black.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+    url('woff2/LTRavi-Black.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/
+    url('ttf/LTRavi-Black.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Ravi;
+    font-style: normal;
+    font-weight: 700;
+    src: url('eot/Ravi-Bold.eot');
+    src: url('eot/Ravi-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-8 */
+    url('woff/Ravi-Bold.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+    url('woff2/Ravi-Bold.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/
+    url('ttf/Ravi-Bold.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Ravi;
+    font-style: normal;
+    font-weight: 500;
+    src: url('eot/LTRavi-Medium.eot');
+    src: url('eot/LTRavi-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-8 */
+    url('woff/LTRavi-Medium.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+    url('woff2/LTRavi-Medium.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/
+    url('ttf/LTRavi-Medium.ttf') format('truetype');
+    font-display: swap;
+}
+
+
+@font-face {
+    font-family: Ravi;
+    font-style: normal;
+    font-weight: 400;
+    src: url('eot/Ravi-Regular.eot');
+    src: url('eot/Ravi-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-8 */
+    url('woff/Ravi-Regular.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+    url('woff2/Ravi-Regular.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/
+    url('ttf/Ravi-Regular.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Ravi;
+    font-style: normal;
+    font-weight: 300;
+    src: url('eot/LTRavi-Light.eot');
+    src: url('eot/LTRavi-Light.eot?#iefix') format('embedded-opentype'), /* IE6-8 */
+    url('woff/LTRavi-Light.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+    url('woff2/LTRavi-Light.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/
+    url('ttf/LTRavi-Light.ttf') format('truetype');
+    font-display: swap;
+}

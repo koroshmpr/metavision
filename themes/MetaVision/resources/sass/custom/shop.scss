@@ -1,0 +1,36 @@
+.product_card {
+  .product_popup {
+    transition:all 0.2s linear;
+    visibility: hidden;
+    transform:translateY(50px);
+  }
+  &:hover {
+    .product_popup {
+      visibility: visible;
+      transform:translateY(0);
+    }
+  }
+}
+.tab-shop {
+  @extend .bg-opacity-50;
+  &.active {
+    @extend .bg-opacity-100
+  }
+}
+.product-image {
+  max-height: 70vh!important;
+}
+.card-description {
+  table {
+    width: 100%;
+    tbody {
+      tr:nth-child(n+4) {
+        display: none;
+      }
+    }
+  }
+}
+.product_image_container {
+  height: 300px!important;
+  max-height: 300px;
+}

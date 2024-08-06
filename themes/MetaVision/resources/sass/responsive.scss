@@ -1,0 +1,237 @@
+@include media-breakpoint-up(lg) {
+  .solution-header {
+    height: 450px;
+  }
+  .text-column-2 {
+    column-count: 2;
+    column-gap: 5px;
+  }
+  .bg-lg-contain {
+    background-size: contain;
+  }
+  .hero_image {
+    object-fit: cover;
+  }
+  .product-image__modal {
+    max-height: 80vh;
+    height: 80vh!important;
+    object-fit: contain;
+    width:auto;
+  }
+  body {
+    --header-width: 250px;
+    display: flex;
+    justify-content: flex-end;
+
+    &.scrolled {
+    }
+
+    #desktop-header {
+      position: fixed;
+      top: 50px;
+    }
+  }
+  #mainHeader {
+    background-color:$secondary;
+  }
+  main {
+    width: calc(100vw - var(--header-width));
+  }
+  #mainHeader, #desktop-header {
+    width: var(--header-width);
+  }
+  .desktop-menu {
+    width: 180px;
+    max-width: 180px;
+  }
+  .contact-hero {
+    height: 500px;
+  }
+  .about-hero {
+    height: 130vh
+  }
+  .product_card {
+    min-width: 180px;
+  }
+
+  .display-lg, .display-lg * {
+    font-size: 8rem !important;
+    line-height: 0.8;
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .bg-mobile-cover {
+    background-size: cover;
+  }
+  .solution-header {
+    height: 300px;
+  }
+  .hero_image {
+    object-fit: cover;
+    height: 100%;
+  }
+  .product-image__modal {
+    height: auto;
+    object-fit: cover;
+    width:100vw;
+  }
+  .menu-item-has-children ul.sub-menu button {
+    top: 10px !important;
+  }
+  body.rtl .product_card .btn-custom {
+    &:before {
+      width: 50% !important;
+    }
+
+    &:hover::before {
+      width: 10px !important;
+    }
+  }
+  .wpml-ls-statics-shortcode_actions {
+    margin-top: auto;
+    margin-bottom: 20px;
+
+    ul {
+      width: auto !important;
+    }
+  }
+
+  body.rtl {
+    #mainHeader {
+      left: 20px
+    }
+  }
+  .translate-n200 {
+    transform: translateY(-100px);
+  }
+  .contact-hero, .about-hero {
+    height: auto;
+  }
+
+}
+
+@include media-breakpoint-down(xxl) {
+  .display-lg {
+    font-size: 8rem;
+    line-height: 0.8;
+  }
+  body.rtl {
+    .display-lg {
+      font-size: 7rem;
+      line-height: 1;
+    }
+  }
+}
+
+@include media-breakpoint-up(xxl) {
+  body.rtl {
+    .display-lg, .display-lg * {
+      font-size: 11rem !important;
+      line-height: 1.2;
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .fs-1 {
+    font-size: calc(1.325rem + 1.4vw) !important;
+  }
+  .fs-2 {
+    font-size: calc(1.275rem + 0.8vw) !important;
+  }
+  .fs-3 {
+    font-size: calc(1.25rem + 0.5vw) !important;
+  }
+  .fs-4 {
+    font-size: calc(1.225rem + 0.2vw) !important;
+  }
+  .fs-5 {
+    font-size: 0.9rem !important;
+  }
+  .fs-6, p, span {
+    font-size: 1rem !important;
+    line-height: normal;
+  }
+  small, .small {
+    font-size: 0.875rem !important;
+  }
+}
+
+@include media-breakpoint-up(md) {
+
+}
+
+@include media-breakpoint-down(md) {
+  .display-lg, .display-lg * {
+    font-size: 5.5rem !important;
+    line-height: 0.8;
+  }
+  body.rtl {
+    .display-lg, .display-lg * {
+      font-size: 5rem !important;
+      line-height: 1.2;
+    }
+  }
+  .product-card {
+    .modal {
+      .modal-body {
+        padding-left: 10px;
+        padding-right: 0;
+      }
+    }
+  }
+  .small-md-down {
+    font-size: $small-font-size !important;
+  }
+}
+
+@media (min-width: 2400px) {
+  .solution-header {
+    height: 600px;
+  }
+  .display-1 {
+    font-size: 8rem !important;
+  }
+  .display-2 {
+    font-size: 7rem !important;
+  }
+  .display-3 {
+    font-size: 6rem !important;
+  }
+  .display-4 {
+    font-size: 5.5rem !important;
+  }
+  .display-5 {
+    font-size: 5rem !important;
+  }
+  .display-6 {
+    font-size: 4rem !important;
+  }
+  .fs-1, h1 {
+    font-size: 5rem !important;
+  }
+  .fs-2, h2 {
+    font-size: 4rem !important;
+  }
+  .fs-3, h3 {
+    font-size: 3.5rem !important;
+  }
+  .fs-4, h4 {
+    font-size: 2.5rem !important;
+  }
+  .fs-5, h5 {
+    font-size: 1.8rem !important;
+  }
+  .fs-6, h6, p, span, div, a {
+    font-size: 1.4rem !important;
+    line-height: 1.7;
+  }
+  small, .small {
+    font-size: 1rem !important;
+  }
+  .container {
+    max-width: 1900px;
+  }
+}
+
