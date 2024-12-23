@@ -1,5 +1,5 @@
 <?php global $cur_lan; ?>
-<nav id="desktop-header" class="d-none d-lg-grid justify-content-center pt-5 px-3">
+<nav id="desktop-header" class="d-none d-lg-grid justify-content-center pt-5 ps-3">
     <a class="navbar-brand mb-4 px-3" href="<?= home_url() ?>">
         <?php
         $logoType = get_field('logo_type', 'option');
@@ -46,9 +46,6 @@
     if (!is_front_page()): ?>
         <a class="navbar-brand px-3" href="<?= home_url() ?>">
             <?php
-            $logoType = get_field('logo_type', 'option');
-            $logoSvg = get_field('site_logo_svg', 'option');
-            $logoImg = get_field('site_logo_image', 'option');
             if ($logoType == 'svg') {
                 echo $logoSvg;
             }

@@ -8,8 +8,8 @@
         </div>
         <div class="d-flex justify-content-end pt-3 pt-lg-0">
             <div class="col-auto align-items-center d-flex justify-content-between gap-3">
-                <a class="btn btn-custom" href="<?php the_permalink(); ?>">
-                    <?=  esc_html__('See more', 'rokarno');  ?>
+                <a class="btn px-3 py-1 btn-white" href="<?php the_permalink(); ?>">
+                    <?=  esc_html__('بیشتر', 'rokarno');  ?>
                 </a>
             </div>
         </div>

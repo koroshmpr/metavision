@@ -8,79 +8,50 @@
 
 // Check if it's a single post and not a product
 global $cur_lan;
+$bgPattern = get_field('background', 'option');
 if (is_single() && !is_product()) {
     get_header();
 
     while (have_posts()) :
         the_post();
         ?>
-        <section class="row row-gap-4 h-100 justify-content-lg-between justify-content-lg-center align-content-start">
-            <div class="bg-secondary solution-header position-relative bg-cover"
-                 style="background-image: url('<?= get_field('background')['url'] ?? ''; ?>'); ">
-                <div class="col-lg-4 col-11 h-75 d-flex flex-column align-items-start justify-content-lg-center justify-content-start pt-2 pt-lg-0 px-5">
-                    <h1 class="fs-1 fw-bold text-primary mb-0 text-uppercase">
-                        <?php the_title(); ?>
-                    </h1>
-                    <h2 class="fs-4 fw-bold text-primary mb-0">
-                        <?= get_field('subtitle'); ?>
-                    </h2>
-                    <div><?= get_field('info'); ?></div>
-                </div>
-                <div style="height: 400px"
-                     class="col-lg-6 col-12 position-absolute top-100 bottom-0 px-4 translate-middle-y">
-                    <div data-aos="fade-down-<?= $cur_lan == 'en' ? 'left' : 'right'; ?>" data-aos-delay="100"
-                         class="col-6 col-lg-3 bg-primary position-absolute bottom-0 <?= $cur_lan == 'en' ? 'end-0 me-3' : 'start-0 ms-3'; ?> h-50 z-n1 mb-4"></div>
-                    <?php if (get_the_post_thumbnail_url()) { ?>
-                        <img data-aos="fade-down" src="<?php echo get_the_post_thumbnail_url() ?>"
-                             height="350"
-                             class="object-fit-cover w-100"
-                             alt="<?php the_title(); ?>">
-                    <?php } ?>
-                </div>
-            </div>
-            <article class="col-11 row row-cols-lg-2 mx-auto py-lg-3 overflow-hidden">
-                <div>
-                    <?php
-                    $listItems = get_field('list_items');
-                    if ($listItems): ?>
-                        <div class="px-0" data-aos="fade-right" data-aos-delay="300">
-                            <?php foreach ($listItems as $index => $listItem) : ?>
-                                <div class="pb-3 <?= $index == 0 ? 'solution-details' : ''; ?>">
-                                    <h3 class="text-primary fw-bold"><?= $listItem['title']; ?></h3>
-                                    <?php $type = $listItem['type'];
-                                    if ($type == 'list') :?>
-                                        <ul class="py-2 border-top lh-normal border-bottom border-primary border-2 text-column-2 marker-primary">
-                                            <?php
-                                            $lists = $listItem['lists'];
-                                            foreach ($lists as $list) : ?>
-                                                <li><?= $list['list']; ?></li>
-                                            <?php endforeach;
-                                            ?>
-                                        </ul>
-                                    <?php endif;
-                                    if ($type == 'text') :
-                                        echo $listItem['text'];
-                                    endif;
-                                    ?>
+        <section style="background: url('<?= $bgPattern['url'] ?? '' ?>');"
+                 class="h-100 bg-cover">
+            <div class="bg-secondary bg-opacity-75 row row-gap-4 pt-5 h-100 justify-content-lg-start justify-content-center align-content-start px-lg-5 px-3">
+                <h1 class="fs-1 fw-bold mt-lg-5 text-white mb-0 text-uppercase border-start border-3 border-white ps-3">
+                    <?php the_title(); ?>
+                </h1>
+                <article class="fs-5 text-white text-justify"><?= get_field('info') ?? ''; ?></article>
+                <?php $gallery = get_field('gallery');
+                if ($gallery) :?>
+                    <div class="swiper post_swiper overflow-hidden">
+                        <div class="swiper-wrapper">
+                            <?php foreach ($gallery as $item): ?>
+                                <div class="swiper-slide">
+                                    <img height="400" class="w-100 object-fit-cover" src="<?= $item['url'] ?>"
+                                         alt="<?= $item['title'] ?>">
                                 </div>
                             <?php endforeach; ?>
                         </div>
-                    <?php endif;
-                    $capabilities = get_field('capabilities');
-                    if ($capabilities):
-                        ?>
-                        <div class="d-flex gap-3 flex-wrap align-items-center justify-content-center">
-                            <?php foreach ($capabilities as $index => $capability): ?>
-                                <img data-aos-offset="-500" data-aos="zoom-in" data-aos-delay="<?= $index * 5;?>0" class="p-2 border borer-dark rounded-1 object-fit-cover" width="70" height="70"
-                                     src="<?= $capability['url'] ?>" alt="<?= $capability['title'] ?>" title="<?= $capability['title'] ?>">
-                            <?php endforeach; ?>
+                        <?php $svgSize = '25'; ?>
+                        <div class="post-button-next position-absolute top-50 end-0 z-2 rounded-circle p-2 bg-white bg-opacity-25 border border-white border-opacity-50">
+                            <svg width="<?= $svgSize; ?>" height="<?= $svgSize; ?>" fill="currentColor"
+                                 class="bi bi-chevron-left text-white" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                      d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                            </svg>
                         </div>
-                    <?php endif; ?>
-                </div>
-                <div class="px-lg-5 pt-3 pt-lg-0" data-aos="fade-down" data-aos-delay="500">
-                    <?php the_content() ?>
-                </div>
-            </article>
+                        <div class="post-button-prev position-absolute top-50 start-0 z-2 rounded-circle p-2 bg-white bg-opacity-25 border border-white border-opacity-50">
+                            <svg width="<?= $svgSize; ?>" height="<?= $svgSize; ?>" fill="currentColor"
+                                 class="bi bi-chevron-right text-white" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                      d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="post-pagination d-flex gap-2 justify-content-center align-items-center pb-3"></div>
+                <?php endif; ?>
+            </div>
         </section>
     <?php endwhile;
     get_footer();

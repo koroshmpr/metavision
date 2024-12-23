@@ -19,4 +19,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-the_title( '<h1 data-aos="fade-down" class="product_title entry-title border-bottom border-primary pb-3 border-3 product_title text-primary entry-title fw-bold">', '</h1>' );
+the_title( '<h1 data-aos="fade-down"  class="product_title entry-title border-bottom border-primary text-center text-lg-start pb-2 mb-4 border-3 product_title text-primary entry-title fw-bold">', '</h1>' );

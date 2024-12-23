@@ -37,7 +37,8 @@ $wrapper_classes = apply_filters(
         'px-0',
         'overflow-hidden',
         'col-lg-5',
-        'col-12'
+        'col-12',
+        'flex-wrap'
     )
 );
 ?>
@@ -45,22 +46,22 @@ $wrapper_classes = apply_filters(
 <div class="<?php echo esc_attr(implode(' ', array_map('sanitize_html_class', $wrapper_classes))); ?>"
      data-columns="<?php echo esc_attr($columns); ?>">
     <figure data-aos="zoom-in" data-aos-delay="100" data-aos-duration="500"
-            class="woocommerce-product-gallery__wrapper h-100 col-11 ps-2">
+            class="woocommerce-product-gallery__wrapper h-100 col-lg-11 col-12 ps-lg-2">
         <?php
         $gallery_image_ids = $product->get_gallery_image_ids();
         // If there are multiple images, initialize Swiper
         ?>
-        <div class="swiper product_image_swiper p-3">
+        <div class="swiper product_image_swiper">
             <div class="swiper-wrapper my-0">
                 <?php
                 // Add your image URL here
                 $image_url = get_the_post_thumbnail_url();
                 $imgClass = 'img-fluid m-0 product-image bg-white';
-                $swiperSlideClass = 'd-flex justify-content-center align-items-center';
+                $swiperSlideClass = 'd-flex justify-content-center align-items-center h-auto';
                 function get_zoom_button_html($image_url)
                 {
                     return '
-        <button class="product__image btn position-absolute bottom-0 end-0 me-lg-3 me-2 mb-2"
+        <button class="product__image btn position-absolute bottom-0 p-3 bg-white text-secondary bg-opacity-50 end-0"
                 type="button" data-bs-toggle="modal" data-bs-target="#myModal"
                 data-link="' . esc_url($image_url) . '">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
@@ -97,13 +98,13 @@ $wrapper_classes = apply_filters(
 
             </div>
             <div class="swiper-pagination position-static w-100 d-flex justify-content-center gap-1 mt-3"></div>
-            <div class="position-absolute lazy d-flex bg-white bg-opacity-50 justify-content-center translate-middle-y ms-4 text-primary align-items-center z-2 top-50 start-0 swiper-nav swiper-button-prev rounded-circle">
+            <div class="position-absolute lazy d-flex bg-white bg-opacity-50 justify-content-center translate-middle-y ms-1 text-primary align-items-center z-2 top-50 start-0 swiper-nav swiper-button-prev rounded-circle">
                 <svg width="20" height="20" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
                           d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
                 </svg>
             </div>
-            <div class="position-absolute lazy d-flex bg-white bg-opacity-50 justify-content-center translate-middle text-primary align-items-center z-2 top-50 end-0 swiper-nav swiper-button-next rounded-circle">
+            <div class="position-absolute lazy d-flex bg-white bg-opacity-50 justify-content-center translate-middle text-primary me-n3 align-items-center z-2 top-50 end-0 swiper-nav swiper-button-next rounded-circle">
                 <svg width="20" height="20" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
                           d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>

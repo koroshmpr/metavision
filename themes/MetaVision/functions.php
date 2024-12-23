@@ -56,8 +56,8 @@ add_action( 'after_setup_theme', 'baloochy_setup' );
 if ( function_exists( 'acf_add_options_page' ) ) {
 
 	acf_add_options_page( array(
-		'page_title' => 'تنظیمات پوسته',
-		'menu_title' => 'تنظیمات پوسته',
+		'page_title' => 'Theme Settings',
+		'menu_title' => 'Theme Settings',
 		'menu_slug'  => 'theme-general-settings',
 		'capability' => 'edit_posts',
 		'redirect'   => false
@@ -115,7 +115,7 @@ function custom_menu_item_classes($classes, $item, $args) {
 add_filter('nav_menu_css_class', 'custom_menu_item_classes', 10, 3);
 function custom_post_type_args( $args, $post_type ) {
     // Change 'project' to the slug of your custom post type
-    if ( 'portfolio' === $post_type ) {
+   if ( 'solution' === $post_type ) {
         // Set the with_front parameter to false
         $args['rewrite']['with_front'] = false;
     }

@@ -4,10 +4,11 @@
   }
   .text-column-2 {
     column-count: 2;
-    column-gap: 5px;
+    column-gap: 25px;
   }
   .bg-lg-contain {
     background-size: contain;
+    background-position: center;
   }
   .hero_image {
     object-fit: cover;
@@ -163,6 +164,15 @@
 }
 
 @include media-breakpoint-down(md) {
+  #heroSlide {
+    height: 95vh;
+  }
+  .vh-sm-90 {
+    height: 90vh;
+  }
+  .top-sm-90 {
+    top:90% !important
+  }
   .display-lg, .display-lg * {
     font-size: 5.5rem !important;
     line-height: 0.8;

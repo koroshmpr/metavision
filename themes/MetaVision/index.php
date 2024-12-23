@@ -4,9 +4,9 @@
 get_header();
 global $cur_lan;
 ?>
-<section class="py-5 px-3 mt-5 px-lg-5">
+<section class="py-5 px-3 px-lg-5 bg-dark h-100">
     <div class="row justify-content-center justify-content-lg-between ">
-        <div class="col-lg-10 row row-cols-1 gap-5 justify-content-center align-items-start">
+        <div class="row row-cols-lg-2 gap-5 justify-content-center justify-content-lg-start align-items-start">
             <?php
             $paged = get_query_var('paged') ?? 10;
 

@@ -14,10 +14,10 @@ if (is_single() && !is_product()) {
     while (have_posts()) :
         the_post();
         ?>
-        <div class="text-white pt-3 pt-lg-0 px-lg-5" id="blog">
+        <div class="pt-3 bg-black pt-lg-0 px-lg-5" id="blog">
             <section class="row py-0 py-lg-5 row-gap-4 justify-content-lg-between justify-content-center">
                 <div class="col-lg-6 col-12 order-last order-lg-start row align-content-center">
-                    <h1 class="fs-3 fw-bold text-dark text-center text-lg-start">
+                    <h1 class="fs-3 fw-bold text-center text-lg-start">
                         <?php the_title(); ?>
                     </h1>
                     <div class="d-inline-flex w-100 justify-content-center justify-content-lg-start">
@@ -27,7 +27,7 @@ if (is_single() && !is_product()) {
                         </span>
                     </div>
                 </div>
-                <div class="col-lg-6 col-12 text-center text-lg-end">
+                <div class="col-lg-6 col-12 text-center text-white text-lg-end">
                     <?php if (get_the_post_thumbnail_url()) { ?>
                         <img src="<?php echo get_the_post_thumbnail_url() ?>"
                              class="w-100 object-fit p-2" height="400"
@@ -36,14 +36,14 @@ if (is_single() && !is_product()) {
                 </div>
             </section>
             <section class="row py-5 px-4 px-lg-0">
-                <article class="text-justify border border-opacity-25 border-white py-3 bg-dark bg-opacity-10 text-link">
+                <article class="text-justify border border-opacity-25 border-white py-3 bg-white text-dark text-link">
                     <?php the_content();
                     wp_reset_postdata();
                     ?>
                 </article>
                 <div class="col-12 py-lg-5 py-3">
                     <h6 class="pb-3 text-primary text-center fs-3 fw-bold">
-                        <?= esc_html__('Latest News', 'rokarno'); ?>
+                        <?= esc_html__('آخرین مقالات', 'rokarno'); ?>
                     </h6>
                     <div class="row row-cols-lg-3 row-cols-1 gap-5 gap-lg-0 px-4 px-lg-0">
                         <?php

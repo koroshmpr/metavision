@@ -22,9 +22,11 @@ if (is_shop()) {
     get_template_part('taxonomy-product_cat');
 } else { ?>
     <div id="primary" class="container">
+        <h1 class="fw-bold pt-lg-5 pb-4 text-lg-start text-center"><?php the_title();?></h1>
         <?php
+
         // Use do_shortcode to process shortcodes in the content
-        echo do_shortcode(get_the_content()); ?>
+        echo do_shortcode(the_content()); ?>
     </div>
 <?php }
 

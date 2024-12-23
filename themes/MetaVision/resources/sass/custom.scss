@@ -57,19 +57,6 @@
     }
   }
 }
-
-.category_container {
-  .card-title {
-    transition: 0.2s ease-in-out;
-    color: rgba(255, 255, 255, 0.51)
-  }
-  &:hover {
-    .card-title {
-      transform: scale(1.1);
-      color:white;
-    }
-  }
-}
 .triangle-border {
   border-style: solid;
   border-width: 860px 100px 0;

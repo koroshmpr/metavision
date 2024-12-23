@@ -25,11 +25,11 @@ $faqs = get_field('faqs'); ?>
             <div class="swiper-pagination text-white"></div>
         </div>
         <div class="col-lg-4 d-flex align-items-center text-white bg-primary px-lg-5">
-            <h1 data-aos="fade-right" class="display-1 text-uppercase"><?= get_the_title(); ?></h1>
+            <h1 data-aos-delay="200" data-aos="zoom-out" class="display-1 text-uppercase"><?= get_the_title(); ?></h1>
         </div>
     </div>
 </section>
-<section class="p-lg-3 p-2 bg-secondary">
+<section class="p-lg-3 p-2 bg-secondary h-100">
     <div class="d-flex justify-content-center py-3">
         <div class="d-flex col-lg-6 col-10 justify-content-center position-relative">
             <input type="text" id="faq-search" class="col-11 form-control p-3" placeholder="Search for ...">

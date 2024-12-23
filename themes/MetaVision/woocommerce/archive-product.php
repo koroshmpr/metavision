@@ -28,72 +28,74 @@ get_header('shop');
 do_action('woocommerce_before_main_content');
 
 ?>
-<?php get_template_part('template-parts/products/archive-hero'); ?>
-
 <?php
-if (woocommerce_product_loop()) {
+//get_template_part('template-parts/products/archive-hero');
+get_template_part('template-parts/products/categories');
+$showProduct = get_field('show_products', 'option');
+if ($showProduct):
+    if (woocommerce_product_loop()) {
 
-    /**
-     * Hook: woocommerce_before_shop_loop.
-     *
-     * @hooked woocommerce_output_all_notices - 10
-     * @hooked woocommerce_result_count - 20
-     * @hooked woocommerce_catalog_ordering - 30
-     */
-    do_action('woocommerce_before_shop_loop');
+        /**
+         * Hook: woocommerce_before_shop_loop.
+         *
+         * @hooked woocommerce_output_all_notices - 10
+         * @hooked woocommerce_result_count - 20
+         * @hooked woocommerce_catalog_ordering - 30
+         */
+        do_action('woocommerce_before_shop_loop');
 
 //    woocommerce_product_loop_start();
-    // Setup product query
-    $args = array(
-        'post_type' => 'product',
-        'orderby' => 'date',
-        'order' => 'ASC',
-        'posts_per_page' => -1, // -1 to show all products, adjust as needed
-    );
+        // Setup product query
+        $args = array(
+            'post_type' => 'product',
+            'orderby' => 'date',
+            'order' => 'ASC',
+            'posts_per_page' => -1, // -1 to show all products, adjust as needed
+        );
 
-    $products = new WC_Product_Query($args);
-    $products = $products->get_products();
+        $products = new WC_Product_Query($args);
+        $products = $products->get_products();
 
-    if ($products) {
-        $i = 0;
-        ?>
-        <section class="bg-secondary">
-            <div class="row col-lg-12 px-lg-4 px-2 py-5 align-items-start justify-content-center justify-content-lg-start">
-                <div class="row row-cols-lg-2 justify-content-lg-start justify-content-center">
-                    <?php foreach ($products as $product) :
-                        setup_postdata($product->get_id()); ?>
-                        <article class="px-3 pb-4" data-aos="zoom-in" data-aos-delay="<?= $i; ?>0">
-                            <?php get_template_part('template-parts/products/archive-card'); ?>
-                        </article>
-                        <?php
-                        $i++;
-                    endforeach;
-                    wp_reset_postdata();
-                    // woocommerce_product_loop_end();
+        if ($products) {
+            $i = 0;
+            ?>
+            <section class="bg-secondary">
+                <div class="row col-lg-12 px-lg-4 px-2 py-5 align-items-start justify-content-center justify-content-lg-start">
+                    <div class="row row-cols-lg-2 justify-content-lg-start justify-content-center">
+                        <?php foreach ($products as $product) :
+                            setup_postdata($product->get_id()); ?>
+                            <article class="px-lg-3 pb-4" data-aos="zoom-in" data-aos-delay="<?= $i; ?>0">
+                                <?php get_template_part('template-parts/products/archive-card'); ?>
+                            </article>
+                            <?php
+                            $i++;
+                        endforeach;
+                        wp_reset_postdata();
+                        // woocommerce_product_loop_end();
 
-                    /**
-                     * Hook: woocommerce_after_shop_loop.
-                     *
-                     * @hooked woocommerce_pagination - 10
-                     */
-                    do_action('woocommerce_after_shop_loop'); ?>
+                        /**
+                         * Hook: woocommerce_after_shop_loop.
+                         *
+                         * @hooked woocommerce_pagination - 10
+                         */
+                        do_action('woocommerce_after_shop_loop'); ?>
+                    </div>
                 </div>
-            </div>
-        </section>
-        <?php
-    }
-} else {
-    /**
-     * Hook: woocommerce_no_products_found.
-     *
-     * @hooked wc_no_products_found - 10
-     */
-//    do_action('woocommerce_no_products_found');
-    ?>
-    <h2 class="fs-4 text-center w-100 border border-info p-4 my-0 bg-white text-white bg-opacity-10">
-        <?= esc_html__('No Products Found', 'rokarno'); ?>
+            </section>
+            <?php
+        }
+    } else {
+        /**
+         * Hook: woocommerce_no_products_found.
+         *
+         * @hooked wc_no_products_found - 10
+         */
+        ?>
+        <h2 class="fs-4 text-center w-100 border border-info p-4 my-0 bg-white text-white bg-opacity-10">
+            <?= esc_html__('No Products Found', 'rokarno'); ?>
         </h2>
-<?php }
+    <?php }
+endif;
 
 /**
  * Hook: woocommerce_after_main_content.

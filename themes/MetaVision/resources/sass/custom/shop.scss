@@ -34,3 +34,55 @@
   height: 300px!important;
   max-height: 300px;
 }
+.woocommerce-product-details__short-description {
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #034ea2;
+  }
+  max-height:80vh;
+table {
+  width:100%;
+  tr:first-child {
+    background-color: #034ea2;
+    color:white;
+  }
+  tr:nth-child(2n){
+    @extend .bg-primary , .bg-opacity-10
+  }
+  td {
+    border: 1px solid black;
+    padding: 5px;
+    text-align: center;
+  }
+}
+}
+.product_image_swiper {
+  .product-image {
+    height:450px;
+  }
+  .swiper-pagination-bullet {
+    &.swiper-pagination-bullet-active img{
+      border-color:$primary!important;
+    }
+    cursor:pointer;
+    width:100px;
+    aspect-ratio: 1;
+  }
+}
+.category_container {
+  background-color: rgba(0, 0, 0, 0.3);
+  .card-title {
+    transition: 0.2s ease-in-out;
+    color: rgba(255, 255, 255, 0.51)
+  }
+  &:hover , &.active , &:focus {
+    background-color: rgba(0, 0, 0, 0.7);
+    .card-title {
+      transform: scale(1.1);
+      color:white;
+    }
+  }
+}

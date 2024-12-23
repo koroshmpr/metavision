@@ -40,11 +40,11 @@ function solutions_post_types()
             'public' => true,
             'labels' => array(
                 'name' => 'solutions',
-                'add_new' => 'افزودن خدمت جدید',
-                'add_new_item' => 'افزودن خدمت جدید',
-                'edit_item' => 'ویرایش خدمات',
-                'all_items' => 'همه ی خدمات',
-                'singular_name' => 'خدمات'
+                'add_new' => 'افزودن راه‌حل جدید',
+                'add_new_item' => 'افزودن راه‌حل جدید',
+                'edit_item' => 'ویرایش راه‌حل',
+                'all_items' => 'همه ی راه‌حل',
+                'singular_name' => 'راه‌حل'
             ),
             'menu_icon' => 'dashicons-lightbulb'
         )
@@ -55,7 +55,7 @@ function solutions_post_types()
         'solution',
         array(
             'hierarchical' => true,
-            'label' => 'دسته بندی خدمات',
+            'label' => 'دسته بندی راه‌حل',
             'query_var' => true,
         )
     );

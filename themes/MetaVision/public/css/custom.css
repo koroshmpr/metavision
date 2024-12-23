@@ -1,0 +1,3 @@
+.productCategory ~ .bg-cover {
+    min-height: 100vh ;
+}

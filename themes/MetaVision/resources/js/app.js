@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
         backToTop.addEventListener('click', backtoTopHandler)
     }
     const postSlider = new Swiper('.post_swiper', {
-        loop: false,
+        loop: true,
         effect: 'slide',
         speed: 500,
         slidesPerView: 1,
@@ -91,8 +91,8 @@ document.addEventListener('DOMContentLoaded', function () {
         centeredSlides: true,
         direction: 'horizontal',
         breakpoints: {
-            968: {
-                slidesPerView: 4,
+            768: {
+                slidesPerView: 2.1,
                 centeredSlides: false,
                 autoplay : false
             },
@@ -115,21 +115,15 @@ document.addEventListener('DOMContentLoaded', function () {
         loop: true,
         effect: 'slide',
         speed: 500,
-        slidesPerView: 1.5,
-        spaceBetween: 15,
+        slidesPerView: 1,
+        spaceBetween: 0,
         mousewheel: {
             invert: false,
             sensitivity: 3
         },
         grabCursor: true,
-        centeredSlides: true,
+        centeredSlides: false,
         direction: 'horizontal',
-        breakpoints: {
-            968: {
-                slidesPerView: 2.7,
-                spaceBetween: 20,
-            },
-        },
         autoplay: {
             delay: 5000,
         },
@@ -155,7 +149,12 @@ document.addEventListener('DOMContentLoaded', function () {
         direction: 'horizontal',
         pagination: {
             el: '.swiper-pagination',
-            clickable: true
+            clickable: true,
+            renderBullet: function (index, className) {
+                // Get the image URL from the respective slide
+                const slideImgSrc = document.querySelector(`.swiper-slide:nth-child(${index + 1}) img`).src;
+                return `<span class="${className}"><img src="${slideImgSrc}" alt="Slide ${index + 1}" class="img-thumbnail h-100 w-100 object-fit-cover" /></span>`;
+            }
         },
         navigation: {
             nextEl: '.swiper-button-next',
@@ -163,9 +162,10 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         autoplay: {
             delay: 5000,
-        },
-        disableOnInteraction: false,
+            disableOnInteraction: false,
+        }
     });
+
     const heroSlider = new Swiper('.hero_slider', {
         direction: 'vertical',
         slidesPerView: 1,
@@ -228,17 +228,18 @@ $(document).ready(function () {
     const firstImageUrl = categoryContainer.first().data('image');
     const bgElement = categoryContainer.first().closest('.swiper-slide');
     bgElement.css('background-image', `url(${firstImageUrl})`);
-
-    // Add hover functionality to each category_container
     categoryContainer.each(function(index) {
         $(this).hover(
             function() {
+                categoryContainer.removeClass('active');
+                $(this).addClass('active');
                 const imageUrl = $(this).data('image');
                 const bgElement = $(this).closest('.swiper-slide');
                 bgElement.css('background-image', `url(${imageUrl})`);
             }
         );
     });
+
     let masonryGrid = document.querySelector(".masonry");
     if (masonryGrid) {
         masonry = new Masonry(masonryGrid, {
